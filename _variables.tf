@@ -15,6 +15,12 @@ variable "image" {
   default = "dnxsolutions/openvpn:1.0.3"
 }
 
+variable "requester_cidrs" {
+  default     = []
+  type        = "list"
+  description = "List of CIDRs to add to openvpn-access SG so clients can connect to resources"
+}
+
 variable "users" {
   default     = ""
   description = "List of users (comma-separated, no spaces) to create keys"
