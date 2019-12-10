@@ -27,7 +27,7 @@ resource "aws_ecs_task_definition" "default" {
       "logDriver": "awslogs",
       "options": {
           "awslogs-group": "${aws_cloudwatch_log_group.default.name}",
-          "awslogs-region": "ap-southeast-2",
+          "awslogs-region": "${data.aws_region.current.name}",
           "awslogs-stream-prefix": "${var.name}"
       }
     },

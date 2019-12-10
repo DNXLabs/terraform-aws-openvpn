@@ -1,0 +1,1 @@
+data "awn_region" "current" {}
