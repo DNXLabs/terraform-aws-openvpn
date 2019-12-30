@@ -34,7 +34,9 @@ resource "aws_iam_role_policy" "ssm_policy" {
     {
       "Effect": "Allow",
       "Action": [
-        "ssm:GetParameters"
+        "ssm:GetParameters",
+        "ssm:GetParameter",
+        "ssm:GetParametersByPath"
       ],
       "Resource": [
         "arn:aws:ssm:*:*:parameter/*"

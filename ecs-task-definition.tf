@@ -37,11 +37,9 @@ resource "aws_ecs_task_definition" "default" {
       }
     },
     "environment": [
-      { "name": "USERS", "value": "${var.users}" },
-      { "name": "REVOKE_USERS", "value": "${var.revoke_users}" },
       { "name": "DOMAIN_NAME", "value": "${var.domain_name}" },
       { "name": "S3_BUCKET", "value": "${aws_s3_bucket.vpn.id}" },
-      { "name": "ROUTE_PUSH", "value": "${var.route_push}" }
+      { "name": "AWS_DEFAULT_REGION", "value": "${data.aws_region.current.name}" }
     ],
     "mountPoints": [
       {
