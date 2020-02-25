@@ -1,23 +1,23 @@
 resource "aws_ssm_parameter" "ROUTE_PUSH" {
-  name  = "/openvpn/ROUTE_PUSH"
+  name  = "/openvpn-${var.name}/ROUTE_PUSH"
   type  = "String"
   value = var.route_push
 }
 
 resource "aws_ssm_parameter" "DOMAIN_NAME" {
-  name  = "/openvpn/DOMAIN_NAME"
+  name  = "/openvpn-${var.name}/DOMAIN_NAME"
   type  = "String"
   value = var.domain_name
 }
 
 resource "aws_ssm_parameter" "USERS" {
-  name  = "/openvpn/USERS"
+  name  = "/openvpn-${var.name}/USERS"
   type  = "String"
   value = var.users
 }
 
 resource "aws_ssm_parameter" "REVOKE_USERS" {
-  name  = "/openvpn/REVOKE_USERS"
+  name  = "/openvpn-${var.name}/REVOKE_USERS"
   type  = "String"
   value = var.revoke_users
 }
