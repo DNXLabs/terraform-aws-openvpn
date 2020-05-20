@@ -40,7 +40,8 @@ resource "aws_ecs_task_definition" "default" {
       { "name": "DOMAIN_NAME", "value": "${var.domain_name}" },
       { "name": "S3_BUCKET", "value": "${aws_s3_bucket.vpn.id}" },
       { "name": "AWS_DEFAULT_REGION", "value": "${data.aws_region.current.name}" },
-      { "name": "NAME", "value": "openvpn-${var.name}" }
+      { "name": "NAME", "value": "openvpn-${var.name}" },
+      { "name": "MFA", "value": "${var.mfa}" }
     ],
     "mountPoints": [
       {

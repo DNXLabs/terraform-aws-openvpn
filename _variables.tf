@@ -12,7 +12,7 @@ variable "task_role_arn" {}
 variable "vpc_id" {}
 
 variable "image" {
-  default = "dnxsolutions/openvpn:2.1.0"
+  default = "dnxsolutions/openvpn:2.2.0"
 }
 
 variable "requester_cidrs" {
@@ -39,4 +39,9 @@ variable "domain_name" {
 variable "route_push" {
   default     = ""
   description = "List of routes to push to client, comma-separated (ex: '10.100.0.0 255.255.0.0,10.200.0.0 255.255.0.0')"
+}
+
+variable "mfa" {
+  default     = "false"
+  description = "Enable or disable MFA for VPN users"
 }
