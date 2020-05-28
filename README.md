@@ -4,6 +4,12 @@
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-openvpn)](https://github.com/DNXLabs/terraform-aws-openvpn/blob/master/LICENSE)
 
 <!--- BEGIN_TF_DOCS --->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12.20 |
+
 ## Providers
 
 | Name | Version |
@@ -13,7 +19,7 @@
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | cluster\_name | n/a | `any` | n/a | yes |
 | domain\_name | Domain name to point to openvpn container for external access | `string` | `"vpn.address"` | no |
 | image | n/a | `string` | `"dnxsolutions/openvpn:2.2.0"` | no |
@@ -29,6 +35,7 @@
 ## Outputs
 
 No output.
+
 <!--- END_TF_DOCS --->
 
 ## Authors
