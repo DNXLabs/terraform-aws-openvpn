@@ -4,6 +4,7 @@
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-openvpn)](https://github.com/DNXLabs/terraform-aws-openvpn/blob/master/LICENSE)
 
 <!--- BEGIN_TF_DOCS --->
+
 ## Requirements
 
 | Name | Version |
@@ -22,7 +23,7 @@
 |------|-------------|------|---------|:--------:|
 | cluster\_name | n/a | `any` | n/a | yes |
 | domain\_name | Domain name to point to openvpn container for external access | `string` | `"vpn.address"` | no |
-| image | n/a | `string` | `"dnxsolutions/openvpn:2.2.0"` | no |
+| image | n/a | `string` | `"dnxsolutions/openvpn:2.2.1"` | no |
 | mfa | Enable or disable MFA for VPN users | `string` | `"false"` | no |
 | name | Name of your ECS service | `string` | `"default"` | no |
 | requester\_cidrs | List of CIDRs to add to openvpn-access SG so clients can connect to resources | `list(string)` | `[]` | no |
