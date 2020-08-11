@@ -2,20 +2,22 @@
 
 terraform-aws-openvpn does the OpenVPN installation 
 The installation requires:
-* An existing VPC
+- An existing VPC
 
 This modules creates the following resources:
 
  - Elastic Container Service(ECS) Tasks Definition
  - ECS Service
  - IAM roles for the ECS Tasks
- - Cloudwatch group for the ECS
+ - Cloudwatch log group for the ECS
  - S3 Bucket to save the ECS Openvpn logs
  - Security group for the openvpn access
  - SSM Parameter resources (Domain Name, Users, Route Push and Revoke Users).
 
- In addition you have the option :
+ In addition you have the option to :
  - Enable or disable Multi-Factor Authentication (MFA) 
+ 
+ More Information: https://dnxlabs.slab.com/public/0ryekfw8
     
 
 
