@@ -17,10 +17,7 @@ This modules creates the following resources:
  In addition you have the option to :
  - Enable or disable Multi-Factor Authentication (MFA) 
  
- More Information: https://dnxlabs.slab.com/public/0ryekfw8
     
-
-
 [![Lint Status](https://github.com/DNXLabs/terraform-aws-openvpn/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-openvpn/actions)
 [![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-openvpn)](https://github.com/DNXLabs/terraform-aws-openvpn/blob/master/LICENSE)
 
