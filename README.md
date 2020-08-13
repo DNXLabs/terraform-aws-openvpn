@@ -1,8 +1,9 @@
 # terraform-aws-openvpn
 
-terraform-aws-openvpn does the OpenVPN installation 
-The installation requires:
-- An existing VPC
+[![Lint Status](https://github.com/DNXLabs/terraform-aws-openvpn/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-openvpn/actions)
+[![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-openvpn)](https://github.com/DNXLabs/terraform-aws-openvpn/blob/master/LICENSE)
+
+This terraform module does the OpenVPN installation
 
 This modules creates the following resources:
 
@@ -15,17 +16,7 @@ This modules creates the following resources:
  - SSM Parameter resources (Domain Name, Users, Route Push and Revoke Users).
 
  In addition you have the option to :
- - Enable or disable Multi-Factor Authentication (MFA) 
- 
- More Information: https://dnxlabs.slab.com/public/0ryekfw8
-    
-
-
-[![Lint Status](https://github.com/DNXLabs/terraform-aws-openvpn/workflows/Lint/badge.svg)](https://github.com/DNXLabs/terraform-aws-openvpn/actions)
-[![LICENSE](https://img.shields.io/github/license/DNXLabs/terraform-aws-openvpn)](https://github.com/DNXLabs/terraform-aws-openvpn/blob/master/LICENSE)
-
-
-  
+ - Enable or disable Multi-Factor Authentication (MFA)
 
 
 <!--- BEGIN_TF_DOCS --->
