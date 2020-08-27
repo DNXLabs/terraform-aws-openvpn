@@ -42,10 +42,8 @@ The following resources will be created:
 | mfa | Enable or disable MFA for VPN users | `string` | `"false"` | no |
 | name | Name of your ECS service | `string` | `"default"` | no |
 | requester\_cidrs | List of CIDRs to add to openvpn-access SG so clients can connect to resources | `list(string)` | `[]` | no |
-| revoke\_users | List of users (comma-separated, no spaces) to revoke previously created keys | `string` | `""` | no |
 | route\_push | List of routes to push to client, comma-separated (ex: '10.100.0.0 255.255.0.0,10.200.0.0 255.255.0.0') | `string` | `""` | no |
 | task\_role\_arn | n/a | `any` | n/a | yes |
-| users | List of users (comma-separated, no spaces) to create keys | `string` | `""` | no |
 | vpc\_id | n/a | `any` | n/a | yes |
 
 ## Outputs
