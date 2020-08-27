@@ -13,11 +13,17 @@ resource "aws_ssm_parameter" "DOMAIN_NAME" {
 resource "aws_ssm_parameter" "USERS" {
   name  = "/openvpn-${var.name}/USERS"
   type  = "String"
-  value = var.users
+  value = ""
+  lifecycle {
+    ignore_changes = [value]
+  }
 }
 
 resource "aws_ssm_parameter" "REVOKE_USERS" {
   name  = "/openvpn-${var.name}/REVOKE_USERS"
   type  = "String"
-  value = var.revoke_users
+  value = ","
+  lifecycle {
+    ignore_changes = [value]
+  }
 }
