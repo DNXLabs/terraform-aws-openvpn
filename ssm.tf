@@ -13,7 +13,7 @@ resource "aws_ssm_parameter" "DOMAIN_NAME" {
 resource "aws_ssm_parameter" "USERS" {
   name  = "/openvpn-${var.name}/USERS"
   type  = "String"
-  value = ""
+  value = ","
   lifecycle {
     ignore_changes = [value]
   }
