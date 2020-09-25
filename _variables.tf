@@ -12,7 +12,7 @@ variable "task_role_arn" {}
 variable "vpc_id" {}
 
 variable "image" {
-  default = "dnxsolutions/openvpn:2.2.1"
+  default = "dnxsolutions/openvpn:2.2.2"
 }
 
 variable "requester_cidrs" {
