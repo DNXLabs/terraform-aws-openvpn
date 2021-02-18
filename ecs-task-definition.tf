@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "default" {
-  family = "openvpn-${var.name}"
+  family = var.name
 
   execution_role_arn = aws_iam_role.ecs_task.arn
   task_role_arn      = aws_iam_role.ecs_task.arn
@@ -12,6 +12,7 @@ resource "aws_ecs_task_definition" "default" {
   container_definitions = <<EOT
 [
   {
+    "command": [ "ovpn_run", "--proto", "tcp" ],
     "name": "${var.name}",
     "image": "${var.image}",
     "memoryReservation": 256,
@@ -20,7 +21,7 @@ resource "aws_ecs_task_definition" "default" {
       {
         "hostPort": 1194,
         "containerPort": 1194,
-        "protocol": "udp"
+        "protocol": "tcp"
       }
     ],
     "logConfiguration": {

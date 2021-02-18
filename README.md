@@ -7,7 +7,9 @@ This module setup an OpenVPN installation and requires an existing VPC.
 
 The following resources will be created:
 
- - Elastic Container Service(ECS) Tasks Definition
+ - Elastic Container Service(ECS) 
+ - Network Load Balance
+ - Tasks Definition
  - ECS Service
  - IAM roles for the ECS Tasks
  - Cloudwatch log group for the ECS
