@@ -4,10 +4,6 @@ resource "aws_lb" "ecs" {
   name               = "ecs-${var.name}"
   subnets            = var.public_subnet_ids
 
-  # security_groups = [
-  #   aws_security_group.alb.id,
-  # ]
-
   idle_timeout = 400
 
   dynamic "access_logs" {
@@ -29,8 +25,6 @@ resource "aws_lb_listener" "ecs_default" {
   load_balancer_arn = aws_lb.ecs.arn
   port              = "1194"
   protocol          = "TCP"
-  # ssl_policy        = var.alb_ssl_policy
-  # certificate_arn   = var.certificate_arn
 
   default_action {
     type             = "forward"
