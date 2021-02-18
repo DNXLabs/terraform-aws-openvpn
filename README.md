@@ -33,20 +33,45 @@ The following resources will be created:
 | Name | Version |
 |------|---------|
 | aws | n/a |
+| random | n/a |
+| template | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| cluster\_name | n/a | `any` | n/a | yes |
+| alb\_ssl\_policy | The name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS. | `string` | `"ELBSecurityPolicy-2016-08"` | no |
+| architecture | Architecture to select the AMI, x86\_64 or arm64 | `string` | `"x86_64"` | no |
+| asg\_protect\_from\_scale\_in | (Optional) Allows setting instance protection. The autoscaling group will not select instances with this setting for termination during scale in events. | `bool` | `false` | no |
+| asg\_target\_capacity | Target average capacity percentage for the ECS capacity provider to track for autoscaling. | `number` | `70` | no |
+| autoscaling\_default\_cooldown | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. | `number` | `300` | no |
+| autoscaling\_health\_check\_grace\_period | The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when an instance comes into service. | `number` | `300` | no |
+| backup | Assing a backup tag to efs resource - Backup will be performed by AWS Backup. | `string` | `"true"` | no |
 | domain\_name | Domain name to point to openvpn container for external access | `string` | `"vpn.address"` | no |
-| image | n/a | `string` | `"dnxsolutions/openvpn:2.2.2"` | no |
+| image | VPN\_SERVICE | `string` | `"dnxsolutions/openvpn:2.2.2"` | no |
+| instance\_type\_1 | Instance type for ECS workers (first priority). | `any` | n/a | yes |
+| instance\_type\_2 | Instance type for ECS workers (second priority). | `any` | n/a | yes |
+| instance\_type\_3 | Instance type for ECS workers (third priority). | `any` | n/a | yes |
+| instance\_volume\_size | Volume size for docker volume (in GB). | `number` | `30` | no |
+| instance\_volume\_size\_root | Volume size for root volume (in GB). | `number` | `16` | no |
+| kms\_key\_arn | ARN of a KMS Key to use on EFS and EBS volumes | `string` | `""` | no |
+| lb\_access\_logs\_bucket | Bucket to store logs from lb access. | `string` | `""` | no |
+| lb\_access\_logs\_prefix | Bucket prefix to store lb access logs. | `string` | `""` | no |
 | mfa | Enable or disable MFA for VPN users | `string` | `"false"` | no |
-| name | Name of your ECS service | `string` | `"default"` | no |
+| name | Name of this ECS cluster. | `any` | n/a | yes |
+| on\_demand\_base\_capacity | You can designate a base portion of your total capacity as On-Demand. As the group scales, per your settings, the base portion is provisioned first, while additional On-Demand capacity is percentage-based. | `number` | `0` | no |
+| on\_demand\_percentage | Percentage of on-demand intances vs spot. | `number` | `0` | no |
+| private\_subnet\_ids | List of private subnet IDs for ECS instances and Internal ALB when enabled. | `list(string)` | n/a | yes |
+| provisioned\_throughput\_in\_mibps | The throughput, measured in MiB/s, that you want to provision for the file system. | `number` | `0` | no |
+| public\_subnet\_ids | List of public subnet IDs for ECS ALB. | `list(string)` | n/a | yes |
 | requester\_cidrs | List of CIDRs to add to openvpn-access SG so clients can connect to resources | `list(string)` | `[]` | no |
 | route\_push | List of routes to push to client, comma-separated (ex: '10.100.0.0 255.255.0.0,10.200.0.0 255.255.0.0') | `string` | `""` | no |
-| task\_role\_arn | n/a | `any` | n/a | yes |
-| vpc\_id | n/a | `any` | n/a | yes |
+| secure\_subnet\_ids | List of secure subnet IDs for EFS. | `list(string)` | n/a | yes |
+| security\_group\_ids | Extra security groups for instances. | `list(string)` | `[]` | no |
+| target\_group\_arns | List of target groups for ASG to register. | `list(string)` | `[]` | no |
+| throughput\_mode | Throughput mode for the file system. Defaults to bursting. Valid values: bursting, provisioned. | `string` | `"bursting"` | no |
+| userdata | Extra commands to pass to userdata. | `string` | `""` | no |
+| vpc\_id | VPC ID to deploy the ECS cluster. | `any` | n/a | yes |
 
 ## Outputs
 
