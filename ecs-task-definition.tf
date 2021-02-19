@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "default" {
   container_definitions = <<EOT
 [
   {
-    "command": [ "ovpn_run", "--proto", "tcp" ],
+    "command": [ "ovpn_run", "--proto", "${var.protocol}" ],
     "name": "${var.name}",
     "image": "${var.image}",
     "memoryReservation": 256,
@@ -42,7 +42,8 @@ resource "aws_ecs_task_definition" "default" {
       { "name": "S3_BUCKET", "value": "${aws_s3_bucket.vpn.id}" },
       { "name": "AWS_DEFAULT_REGION", "value": "${data.aws_region.current.name}" },
       { "name": "NAME", "value": "openvpn-${var.name}" },
-      { "name": "MFA", "value": "${var.mfa}" }
+      { "name": "MFA", "value": "${var.mfa}" },
+      { "name": "OVPN_PROTO", "value": "${var.protocol}"}
     ],
     "mountPoints": [
       {

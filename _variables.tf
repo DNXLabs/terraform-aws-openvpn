@@ -88,6 +88,21 @@ variable "architecture" {
 
 # == OPTIONAL VARS
 
+variable "hostname_create" {
+  default     = "true"
+  description = "Optional parameter to create or not a Route53 record"
+}
+
+variable "hosted_zone" {
+  default     = ""
+  description = "Hosted Zone to create DNS record for this app"
+}
+
+variable "protocol" {
+  default     = "tcp"
+  description = "Protocol that will be use by the vpn"
+}
+
 variable "userdata" {
   default     = ""
   description = "Extra commands to pass to userdata."
@@ -146,7 +161,7 @@ variable "alb_ssl_policy" {
 
 # VPN_SERVICE
 variable "image" {
-  default = "dnxsolutions/openvpn:2.2.2"
+  default = "dnxsolutions/openvpn:2.4.0"
 }
 
 variable "requester_cidrs" {
