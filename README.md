@@ -48,7 +48,9 @@ The following resources will be created:
 | autoscaling\_health\_check\_grace\_period | The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when an instance comes into service. | `number` | `300` | no |
 | backup | Assing a backup tag to efs resource - Backup will be performed by AWS Backup. | `string` | `"true"` | no |
 | domain\_name | Domain name to point to openvpn container for external access | `string` | `"vpn.address"` | no |
-| image | VPN\_SERVICE | `string` | `"dnxsolutions/openvpn:2.2.2"` | no |
+| hosted\_zone | Hosted Zone to create DNS record for this app | `string` | `""` | no |
+| hostname\_create | Optional parameter to create or not a Route53 record | `string` | `"true"` | no |
+| image | VPN\_SERVICE | `string` | `"dnxsolutions/openvpn:2.4.0"` | no |
 | instance\_type\_1 | Instance type for ECS workers (first priority). | `any` | n/a | yes |
 | instance\_type\_2 | Instance type for ECS workers (second priority). | `any` | n/a | yes |
 | instance\_type\_3 | Instance type for ECS workers (third priority). | `any` | n/a | yes |
@@ -62,6 +64,7 @@ The following resources will be created:
 | on\_demand\_base\_capacity | You can designate a base portion of your total capacity as On-Demand. As the group scales, per your settings, the base portion is provisioned first, while additional On-Demand capacity is percentage-based. | `number` | `0` | no |
 | on\_demand\_percentage | Percentage of on-demand intances vs spot. | `number` | `0` | no |
 | private\_subnet\_ids | List of private subnet IDs for ECS instances and Internal ALB when enabled. | `list(string)` | n/a | yes |
+| protocol | Protocol that will be use by the vpn | `string` | `"tcp"` | no |
 | provisioned\_throughput\_in\_mibps | The throughput, measured in MiB/s, that you want to provision for the file system. | `number` | `0` | no |
 | public\_subnet\_ids | List of public subnet IDs for ECS ALB. | `list(string)` | n/a | yes |
 | requester\_cidrs | List of CIDRs to add to openvpn-access SG so clients can connect to resources | `list(string)` | `[]` | no |
