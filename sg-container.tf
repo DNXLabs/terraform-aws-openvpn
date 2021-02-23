@@ -1,12 +1,11 @@
-resource "aws_security_group" "openvpn" {
-  count  = length(var.requester_cidrs) > 0 ? 1 : 0
-  name   = "openvpn-access-${var.name}"
+resource "aws_security_group" "openvpn_internet_ingress" {
+  name   = "${var.name}-internet-ingress"
   vpc_id = var.vpc_id
 
   ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = var.requester_cidrs
+    from_port   = 1194
+    to_port     = 1194
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
