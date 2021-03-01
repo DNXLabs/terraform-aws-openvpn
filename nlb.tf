@@ -55,7 +55,7 @@ resource "aws_lb_target_group" "ecs_default" {
 
   stickiness {
     enabled = false
-    type = "lb_cookie"
+    type = "source_ip"
   }
 
   lifecycle {
