@@ -40,22 +40,22 @@ resource "random_string" "alb_prefix" {
 }
 
 resource "aws_lb_target_group" "ecs_default" {
-  name     = substr("ecs-${var.name}-default-${random_string.alb_prefix.result}", 0, 32)
-  port     = 1194
-  protocol = "TCP"
-  vpc_id   = var.vpc_id
+  name                 = substr("ecs-${var.name}-default-${random_string.alb_prefix.result}", 0, 32)
+  port                 = 1194
+  protocol             = "TCP"
+  vpc_id               = var.vpc_id
   deregistration_delay = 10
   target_type          = "instance"
 
   health_check {
     protocol = "TCP"
-    port      = 1194
-    interval  = 30
+    port     = 1194
+    interval = 30
   }
 
   stickiness {
     enabled = false
-    type = "source_ip"
+    type    = "source_ip"
   }
 
   lifecycle {
