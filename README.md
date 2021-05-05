@@ -49,6 +49,7 @@ The following resources will be created:
 | backup | Assing a backup tag to efs resource - Backup will be performed by AWS Backup. | `string` | `"true"` | no |
 | domain\_name | Domain name to point to openvpn container for external access | `string` | `"vpn.address"` | no |
 | hosted\_zone | Hosted Zone to create DNS record for this app | `string` | `""` | no |
+| hosted\_zone\_id | Hosted Zone ID to create DNS record for this app (prefer this instead of hosted\_zone) | `string` | `""` | no |
 | hostname\_create | Optional parameter to create or not a Route53 record | `string` | `"true"` | no |
 | image | VPN\_SERVICE | `string` | `"dnxsolutions/openvpn:2.4.0"` | no |
 | instance\_type\_1 | Instance type for ECS workers (first priority). | `any` | n/a | yes |
@@ -78,7 +79,9 @@ The following resources will be created:
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| ecs\_nodes\_secgrp\_id | n/a |
 
 <!--- END_TF_DOCS --->
 
