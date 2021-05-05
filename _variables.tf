@@ -98,6 +98,11 @@ variable "hosted_zone" {
   description = "Hosted Zone to create DNS record for this app"
 }
 
+variable "hosted_zone_id" {
+  default     = ""
+  description = "Hosted Zone ID to create DNS record for this app (prefer this instead of hosted_zone)"
+}
+
 variable "protocol" {
   default     = "tcp"
   description = "Protocol that will be use by the vpn"
