@@ -40,7 +40,7 @@ resource "random_string" "alb_prefix" {
 }
 
 resource "aws_lb_target_group" "ecs_default" {
-  name                 = substr("ecs-${var.name}-default-${random_string.alb_prefix.result}", 0, 32)
+  name                 = substr("ecs-${var.name}-${random_string.alb_prefix.result}", 0, 32)
   port                 = 1194
   protocol             = "TCP"
   vpc_id               = var.vpc_id
