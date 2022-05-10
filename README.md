@@ -82,6 +82,7 @@ The following resources will be created:
 | Name | Description |
 |------|-------------|
 | ecs\_nodes\_secgrp\_id | n/a |
+| s3\_bucket\_openvpn | n/a |
 
 <!--- END_TF_DOCS --->
 
