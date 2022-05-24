@@ -57,7 +57,9 @@ The following resources will be created:
 | instance\_type\_3 | Instance type for ECS workers (third priority). | `any` | n/a | yes |
 | instance\_volume\_size | Volume size for docker volume (in GB). | `number` | `30` | no |
 | instance\_volume\_size\_root | Volume size for root volume (in GB). | `number` | `16` | no |
-| kms\_key\_arn | ARN of a KMS Key to use on EFS and EBS volumes | `string` | `""` | no |
+| kms\_key\_ebs\_arn | ARN of a KMS Key to use on EBS volumes | `string` | `""` | no |
+| kms\_key\_efs\_arn | ARN of a KMS Key to use on EFS volumes | `string` | `""` | no |
+| kms\_key\_s3\_arn | ARN of a KMS Key to use on S3 buckets | `string` | `""` | no |
 | lb\_access\_logs\_bucket | Bucket to store logs from lb access. | `string` | `""` | no |
 | lb\_access\_logs\_prefix | Bucket prefix to store lb access logs. | `string` | `""` | no |
 | mfa | Enable or disable MFA for VPN users | `string` | `"false"` | no |
