@@ -4,9 +4,21 @@ variable "name" {
   description = "Name of this ECS cluster."
 }
 
-variable "kms_key_arn" {
+variable "kms_key_s3_arn" {
   type        = string
-  description = "ARN of a KMS Key to use on EFS and EBS volumes"
+  description = "ARN of a KMS Key to use on S3 buckets"
+  default     = ""
+}
+
+variable "kms_key_ebs_arn" {
+  type        = string
+  description = "ARN of a KMS Key to use on EBS volumes"
+  default     = ""
+}
+
+variable "kms_key_efs_arn" {
+  type        = string
+  description = "ARN of a KMS Key to use on EFS volumes"
   default     = ""
 }
 
