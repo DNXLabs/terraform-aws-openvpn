@@ -72,6 +72,7 @@ The following resources will be created:
 | public\_subnet\_ids | List of public subnet IDs for ECS ALB. | `list(string)` | n/a | yes |
 | requester\_cidrs | List of CIDRs to add to openvpn-access SG so clients can connect to resources | `list(string)` | `[]` | no |
 | route\_push | List of routes to push to client, comma-separated (ex: '10.100.0.0 255.255.0.0,10.200.0.0 255.255.0.0') | `string` | `""` | no |
+| s3\_bucket\_policy | Openvpn S3 bucket policy | `string` | `""` | no |
 | secure\_subnet\_ids | List of secure subnet IDs for EFS. | `list(string)` | n/a | yes |
 | security\_group\_ids | Extra security groups for instances. | `list(string)` | `[]` | no |
 | target\_group\_arns | List of target groups for ASG to register. | `list(string)` | `[]` | no |
