@@ -1,5 +1,3 @@
-# == REQUIRED VARS
-
 variable "name" {
   description = "Name of this ECS cluster."
 }
@@ -7,6 +5,11 @@ variable "name" {
 variable "kms_key_s3_arn" {
   type        = string
   description = "ARN of a KMS Key to use on S3 buckets"
+  default     = ""
+}
+
+variable "s3_bucket_policy" {
+  description = "Openvpn S3 bucket policy"
   default     = ""
 }
 
@@ -95,11 +98,6 @@ variable "architecture" {
   description = "Architecture to select the AMI, x86_64 or arm64"
 }
 
-# variable "certificate_arn" {}
-
-
-# == OPTIONAL VARS
-
 variable "hostname_create" {
   default     = "true"
   description = "Optional parameter to create or not a Route53 record"
@@ -174,7 +172,6 @@ variable "alb_ssl_policy" {
   type        = string
   description = "The name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS."
 }
-
 
 # VPN_SERVICE
 variable "image" {
