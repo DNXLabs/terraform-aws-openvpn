@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "vpn" {
   bucket_prefix = "openvpn-${var.name}-"
   acl           = "private"
-
+  policy        = var.s3_bucket_policy != "" ? var.s3_bucket_policy : null
 }
 
 resource "aws_s3_bucket_public_access_block" "vpn" {
