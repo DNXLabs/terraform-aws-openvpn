@@ -47,6 +47,7 @@ The following resources will be created:
 | autoscaling\_default\_cooldown | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. | `number` | `300` | no |
 | autoscaling\_health\_check\_grace\_period | The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when an instance comes into service. | `number` | `300` | no |
 | backup | Assing a backup tag to efs resource - Backup will be performed by AWS Backup. | `string` | `"true"` | no |
+| cw\_retention\_period | Retention period (in days) for Cloud Watch log group. Default to Never Expire. | `number` | `0` | no |
 | domain\_name | Domain name to point to openvpn container for external access | `string` | `"vpn.address"` | no |
 | hosted\_zone | Hosted Zone to create DNS record for this app | `string` | `""` | no |
 | hosted\_zone\_id | Hosted Zone ID to create DNS record for this app (prefer this instead of hosted\_zone) | `string` | `""` | no |

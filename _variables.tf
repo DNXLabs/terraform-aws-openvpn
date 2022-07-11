@@ -167,6 +167,11 @@ variable "lb_access_logs_prefix" {
   description = "Bucket prefix to store lb access logs."
 }
 
+variable "cw_retention_period" {
+  default     = 0
+  description = "Retention period (in days) for Cloud Watch log group. Default to Never Expire."
+}
+
 variable "alb_ssl_policy" {
   default     = "ELBSecurityPolicy-2016-08"
   type        = string
