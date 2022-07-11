@@ -47,6 +47,7 @@ The following resources will be created:
 | autoscaling\_default\_cooldown | The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. | `number` | `300` | no |
 | autoscaling\_health\_check\_grace\_period | The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when an instance comes into service. | `number` | `300` | no |
 | backup | Assing a backup tag to efs resource - Backup will be performed by AWS Backup. | `string` | `"true"` | no |
+| cw\_retention\_period | Retention period (in days) for Cloud Watch log group. Default to Never Expire. | `number` | `0` | no |
 | domain\_name | Domain name to point to openvpn container for external access | `string` | `"vpn.address"` | no |
 | hosted\_zone | Hosted Zone to create DNS record for this app | `string` | `""` | no |
 | hosted\_zone\_id | Hosted Zone ID to create DNS record for this app (prefer this instead of hosted\_zone) | `string` | `""` | no |
@@ -62,7 +63,6 @@ The following resources will be created:
 | kms\_key\_s3\_arn | ARN of a KMS Key to use on S3 buckets | `string` | `""` | no |
 | lb\_access\_logs\_bucket | Bucket to store logs from lb access. | `string` | `""` | no |
 | lb\_access\_logs\_prefix | Bucket prefix to store lb access logs. | `string` | `""` | no |
-| cw\_retention\_period | Retention period (in days) for Cloud Watch log group. Default to Never Expire. | `number` | `0` | no |
 | mfa | Enable or disable MFA for VPN users | `string` | `"false"` | no |
 | name | Name of this ECS cluster. | `any` | n/a | yes |
 | on\_demand\_base\_capacity | You can designate a base portion of your total capacity as On-Demand. As the group scales, per your settings, the base portion is provisioned first, while additional On-Demand capacity is percentage-based. | `number` | `0` | no |
