@@ -62,6 +62,7 @@ The following resources will be created:
 | kms\_key\_s3\_arn | ARN of a KMS Key to use on S3 buckets | `string` | `""` | no |
 | lb\_access\_logs\_bucket | Bucket to store logs from lb access. | `string` | `""` | no |
 | lb\_access\_logs\_prefix | Bucket prefix to store lb access logs. | `string` | `""` | no |
+| cw\_retention\_period | Retention period (in days) for Cloud Watch log group. Default to Never Expire. | `number` | `0` | no |
 | mfa | Enable or disable MFA for VPN users | `string` | `"false"` | no |
 | name | Name of this ECS cluster. | `any` | n/a | yes |
 | on\_demand\_base\_capacity | You can designate a base portion of your total capacity as On-Demand. As the group scales, per your settings, the base portion is provisioned first, while additional On-Demand capacity is percentage-based. | `number` | `0` | no |
