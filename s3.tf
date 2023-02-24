@@ -1,6 +1,14 @@
 resource "aws_s3_bucket" "vpn" {
   bucket_prefix = "openvpn-${var.name}-"
-  acl           = "private"
+}
+
+resource "aws_s3_bucket_acl" "vpn" {
+  bucket = aws_s3_bucket.vpn.id
+  acl = "private"
+}
+
+resource "aws_s3_bucket_policy" "vpn" {
+  bucket = aws_s3_bucket.vpn.id
   policy        = var.s3_bucket_policy != "" ? var.s3_bucket_policy : null
 }
 

@@ -27,12 +27,13 @@ The following resources will be created:
 | Name | Version |
 |------|---------|
 | terraform | >= 0.13.0 |
+| aws | >= 4.4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
+| aws | >= 4.4.0 |
 | random | n/a |
 | template | n/a |
 
