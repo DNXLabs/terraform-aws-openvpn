@@ -8,8 +8,9 @@ resource "aws_s3_bucket_acl" "vpn" {
 }
 
 resource "aws_s3_bucket_policy" "vpn" {
+  count  = var. s3_bucket_policy == "" ? 0 : 1
   bucket = aws_s3_bucket.vpn.id
-  policy        = var.s3_bucket_policy != "" ? var.s3_bucket_policy : null
+  policy = var.s3_bucket_policy != "" ? var.s3_bucket_policy : null
 }
 
 resource "aws_s3_bucket_public_access_block" "vpn" {
