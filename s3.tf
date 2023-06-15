@@ -15,6 +15,7 @@ resource "aws_s3_bucket_ownership_controls" "mybucket2-acl-ownership" {
 }
 
 resource "aws_s3_bucket_policy" "vpn" {
+  count = var. s3_bucket_policy == "" ? 0 : 1
   bucket = aws_s3_bucket.vpn.id
   policy = var.s3_bucket_policy != "" ? var.s3_bucket_policy : null
 }
