@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "vpn" {
 
 resource "aws_s3_bucket_acl" "vpn" {
   bucket = aws_s3_bucket.vpn.id
-  acl = "private"
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_ownership_controls" "mybucket2-acl-ownership" {
@@ -16,7 +16,7 @@ resource "aws_s3_bucket_ownership_controls" "mybucket2-acl-ownership" {
 
 resource "aws_s3_bucket_policy" "vpn" {
   bucket = aws_s3_bucket.vpn.id
-  policy        = var.s3_bucket_policy != "" ? var.s3_bucket_policy : null
+  policy = var.s3_bucket_policy != "" ? var.s3_bucket_policy : null
 }
 
 resource "aws_s3_bucket_public_access_block" "vpn" {
