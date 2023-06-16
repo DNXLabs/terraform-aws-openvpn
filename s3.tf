@@ -10,7 +10,7 @@ resource "aws_s3_bucket_acl" "vpn" {
 resource "aws_s3_bucket_ownership_controls" "mybucket2-acl-ownership" {
   bucket = aws_s3_bucket.vpn.id
   rule {
-    object_ownership = "BucketOwnerEnforced"
+    object_ownership = "BucketOwnerPreferred"
   }
   depends_on = [aws_s3_bucket_acl.vpn]
 
