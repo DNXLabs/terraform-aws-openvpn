@@ -7,8 +7,6 @@ resource "aws_s3_bucket_ownership_controls" "mybucket2-acl-ownership" {
   rule { 
     object_ownership = "BucketOwnerPreferred"
   }
-  depends_on = [aws_s3_bucket_acl.vpn]
-
 }
 
 resource "aws_s3_bucket_policy" "vpn" {
