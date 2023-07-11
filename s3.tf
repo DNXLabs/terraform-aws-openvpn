@@ -4,7 +4,7 @@ resource "aws_s3_bucket" "vpn" {
 
 resource "aws_s3_bucket_ownership_controls" "mybucket2-acl-ownership" {
   bucket = aws_s3_bucket.vpn.id
-  rule { 
+  rule {
     object_ownership = "BucketOwnerPreferred"
   }
 }
