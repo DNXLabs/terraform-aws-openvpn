@@ -6,7 +6,7 @@ resource "aws_s3_bucket_acl" "vpn" {
   depends_on = [aws_s3_bucket_ownership_controls.vpn]
 
   bucket = aws_s3_bucket.vpn.id
-  acl = "private"
+  acl    = "private"
 }
 
 resource "aws_s3_bucket_ownership_controls" "vpn" {
@@ -17,9 +17,9 @@ resource "aws_s3_bucket_ownership_controls" "vpn" {
 }
 
 resource "aws_s3_bucket_policy" "vpn" {
-  count = var.s3_bucket_policy != "" ? 1 : 0
+  count  = var.s3_bucket_policy != "" ? 1 : 0
   bucket = aws_s3_bucket.vpn.id
-  policy        = var.s3_bucket_policy
+  policy = var.s3_bucket_policy
 }
 
 resource "aws_s3_bucket_public_access_block" "vpn" {
