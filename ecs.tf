@@ -9,5 +9,12 @@ resource "aws_ecs_cluster" "ecs" {
     ]
   }
 
+  provisioner "local-exec" {
+    when    = destroy
+    command = <<-EOT
+    aws autoscaling update-auto-scaling-group --auto-scaling-group-name ecs-${self.name} --min-size 0 --desired-capacity 0
+EOT
+  }
+
 }
 
