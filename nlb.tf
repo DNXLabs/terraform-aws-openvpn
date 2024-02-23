@@ -3,7 +3,7 @@ resource "aws_lb" "ecs" {
   internal           = false
   name               = "ecs-${var.name}"
   subnets            = var.public_subnet_ids
-  security_groups    = length(var.nlb_security_group_ids) > 0 ? var.nlb_security_group_ids :  [aws_security_group.nlb.id]
+  security_groups    = length(var.nlb_security_group_ids) > 0 ? var.nlb_security_group_ids : [aws_security_group.nlb.id]
 
   idle_timeout = 400
 
