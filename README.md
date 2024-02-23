@@ -66,6 +66,7 @@ The following resources will be created:
 | lb\_access\_logs\_prefix | Bucket prefix to store lb access logs. | `string` | `""` | no |
 | mfa | Enable or disable MFA for VPN users | `string` | `"false"` | no |
 | name | Name of this ECS cluster. | `any` | n/a | yes |
+| nlb\_security\_group\_ids | Extra security groups for instances. | `list(string)` | `[]` | no |
 | on\_demand\_base\_capacity | You can designate a base portion of your total capacity as On-Demand. As the group scales, per your settings, the base portion is provisioned first, while additional On-Demand capacity is percentage-based. | `number` | `0` | no |
 | on\_demand\_percentage | Percentage of on-demand intances vs spot. | `number` | `0` | no |
 | private\_subnet\_ids | List of private subnet IDs for ECS instances and Internal ALB when enabled. | `list(string)` | n/a | yes |

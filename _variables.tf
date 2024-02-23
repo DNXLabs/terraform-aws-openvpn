@@ -129,6 +129,14 @@ variable "security_group_ids" {
   description = "Extra security groups for instances."
 }
 
+
+variable "nlb_security_group_ids" {
+  type        = list(string)
+  default     = []
+  description = "Extra security groups for instances."
+}
+
+
 variable "asg_protect_from_scale_in" {
   default     = false
   description = "(Optional) Allows setting instance protection. The autoscaling group will not select instances with this setting for termination during scale in events."
