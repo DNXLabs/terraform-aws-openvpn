@@ -1,4 +1,5 @@
 variable "name" {
+  type        = string
   description = "Name of this ECS cluster."
 }
 
@@ -9,6 +10,7 @@ variable "kms_key_s3_arn" {
 }
 
 variable "s3_bucket_policy" {
+  type        = string
   description = "Openvpn S3 bucket policy"
   default     = ""
 }
@@ -32,6 +34,7 @@ variable "throughput_mode" {
 }
 
 variable "provisioned_throughput_in_mibps" {
+  type        = number
   default     = 0
   description = "The throughput, measured in MiB/s, that you want to provision for the file system."
 }
@@ -44,6 +47,7 @@ variable "backup" {
 
 variable "vpc_id" {
   description = "VPC ID to deploy the ECS cluster."
+  type        = string
 }
 
 variable "private_subnet_ids" {
@@ -62,63 +66,70 @@ variable "secure_subnet_ids" {
 }
 
 variable "instance_type_1" {
+  type        = string
   description = "Instance type for ECS workers (first priority)."
 }
 
 variable "instance_type_2" {
+  type        = string
   description = "Instance type for ECS workers (second priority)."
 }
 
 variable "instance_type_3" {
+  type        = string
   description = "Instance type for ECS workers (third priority)."
 }
 
 variable "instance_volume_size" {
+  type        = number
   description = "Volume size for docker volume (in GB)."
   default     = 30
 }
 
-variable "instance_volume_size_root" {
-  description = "Volume size for root volume (in GB)."
-  default     = 16
-}
-
 variable "on_demand_base_capacity" {
+  type        = number
   description = "You can designate a base portion of your total capacity as On-Demand. As the group scales, per your settings, the base portion is provisioned first, while additional On-Demand capacity is percentage-based."
   default     = 0
 }
 
 variable "on_demand_percentage" {
+  type        = number
   description = "Percentage of on-demand intances vs spot."
   default     = 0
 }
 
 variable "architecture" {
+  type        = string
   default     = "x86_64"
   description = "Architecture to select the AMI, x86_64 or arm64"
 }
 
 variable "hostname_create" {
+  type        = string
   default     = "true"
   description = "Optional parameter to create or not a Route53 record"
 }
 
 variable "hosted_zone" {
+  type        = string
   default     = ""
   description = "Hosted Zone to create DNS record for this app"
 }
 
 variable "hosted_zone_id" {
+  type        = string
   default     = ""
   description = "Hosted Zone ID to create DNS record for this app (prefer this instead of hosted_zone)"
 }
 
 variable "protocol" {
+  type        = string
   default     = "tcp"
   description = "Protocol that will be use by the vpn"
 }
 
 variable "userdata" {
+  type        = string
   default     = ""
   description = "Extra commands to pass to userdata."
 }
@@ -138,6 +149,7 @@ variable "nlb_security_group_ids" {
 
 
 variable "asg_protect_from_scale_in" {
+  type        = bool
   default     = false
   description = "(Optional) Allows setting instance protection. The autoscaling group will not select instances with this setting for termination during scale in events."
 }
@@ -149,16 +161,19 @@ variable "target_group_arns" {
 }
 
 variable "autoscaling_health_check_grace_period" {
+  type        = number
   default     = 300
   description = "The length of time that Auto Scaling waits before checking an instance's health status. The grace period begins when an instance comes into service."
 }
 
 variable "autoscaling_default_cooldown" {
+  type        = number
   default     = 300
   description = "The amount of time, in seconds, after a scaling activity completes before another scaling activity can start."
 }
 
 variable "asg_target_capacity" {
+  type        = number
   default     = 70
   description = "Target average capacity percentage for the ECS capacity provider to track for autoscaling."
 }
@@ -176,38 +191,43 @@ variable "lb_access_logs_prefix" {
 }
 
 variable "cw_retention_period" {
+  type        = string
   default     = 0
   description = "Retention period (in days) for Cloud Watch log group. Default to Never Expire."
 }
 
-variable "alb_ssl_policy" {
-  default     = "ELBSecurityPolicy-2016-08"
-  type        = string
-  description = "The name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS."
-}
-
 # VPN_SERVICE
 variable "image" {
+  type    = string
   default = "dnxsolutions/openvpn:2.4.0"
 }
 
-variable "requester_cidrs" {
-  default     = []
-  type        = list(string)
-  description = "List of CIDRs to add to openvpn-access SG so clients can connect to resources"
-}
-
 variable "domain_name" {
+  type        = string
   default     = "vpn.address"
   description = "Domain name to point to openvpn container for external access"
 }
 
 variable "route_push" {
+  type        = string
   default     = ""
   description = "List of routes to push to client, comma-separated (ex: '10.100.0.0 255.255.0.0,10.200.0.0 255.255.0.0')"
 }
 
 variable "mfa" {
+  type        = string
   default     = "false"
   description = "Enable or disable MFA for VPN users"
 }
+
+variable "ovpn_defroute" {
+  type        = string
+  default     = "0"
+  description = "If the client config should have the 'redirect-gateway' option (to send all traffic through the VPN)"
+}
+
+variable "ovpn_dns_servers" {
+  type = string
+  default = "8.8.8.8 8.8.4.4"
+}
+

@@ -43,7 +43,8 @@ resource "aws_ecs_task_definition" "default" {
       { "name": "AWS_DEFAULT_REGION", "value": "${data.aws_region.current.name}" },
       { "name": "NAME", "value": "openvpn-${var.name}" },
       { "name": "MFA", "value": "${var.mfa}" },
-      { "name": "OVPN_PROTO", "value": "${var.protocol}"}
+      { "name": "OVPN_PROTO", "value": "${var.protocol}"},
+      { "name": "OVPN_DEFROUTE", "value": "${var.ovpn_defroute}"}
     ],
     "mountPoints": [
       {
