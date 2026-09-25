@@ -1,4 +1,5 @@
 resource "aws_ecs_service" "default" {
+  depends_on      = [aws_ecs_cluster.ecs]
   name            = "default"
   cluster         = var.name
   task_definition = aws_ecs_task_definition.default.arn
